@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#131d37">
+        <meta name="description" content="Irregular Adventure: juego de mesa gratuito para aprender 100 verbos irregulares en inglés.">
+        <title>Irregular Adventure | 100 verbos, una aventura</title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app">
+            <header class="topbar"><a class="brand" href="#" id="homeBrand" aria-label="Inicio">🦠 <span>El proyecto</span></a>
+                <div class="top-actions">
+                    <button class="small-btn" id="dictionaryButton">📚 Diccionario</button>
+                    <button class="small-btn" id="rulesButton">❔ Instrucciones</button>
+                    <button class="small-btn" id="soundButton" aria-pressed="true">🔊 Sonido</button>
+                </div>
+            </header>
+            <main>
+                <section id="menuScreen" class="screen menu-screen">
+                    <div class="hero">
+                        
+                        <h1>Proyecto del profe de ingles<br><span>100 verbos</span></h1>
+                    </div>
+                    <div class="setup card"><h2>  🎮 Nueva partida</h2>
+                        <label for="playerCount">Número de jugadores</label>
+                        <select id="playerCount"><option value="1">1 jugador</option>
+                            <option value="2" selected>2 jugadores</option>
+                            <option value="3">3 jugadores</option>
+                            <option value="4">4 jugadores</option>
+                        </select>
+                        <div id="playerInputs" class="player-inputs">
+                        </div>
+                        <label class="check"><input id="timerSetting" type="checkbox"> Activar temporizador de 20 segundos</label>
+                        <div class="setup-actions"><button class="primary" id="startButton">Comenzar aventura →</button>
+                            <button class="secondary hidden" id="continueButton">Continuar partida guardada</button>
+                        </div>
+                        <p class="help">La partida se guarda automáticamente en este navegador.</p>
+                    </div>
+                </section>
+                <section id="gameScreen" class="screen hidden">
+                    <div class="game-heading">
+                        <div>
+                            <div class="eyebrow">THE BOARD
+                            </div>
+                            <h1>Camino a la meta <span>🏁</span></h1><p id="turnStatus" class="muted" aria-live="polite"></p>
+                        </div>
+                        <div class="game-actions">
+                            <button id="gameRules" class="small-btn">❔ Reglas</button>
+                            <button id="restartButton" class="small-btn danger">↻ Reiniciar</button>
+                        </div>
+                    </div>
+                    <div class="game-layout">
+                        <div class="board-wrap card">
+                            <div id="board" class="board" role="grid" aria-label="Tablero de 100 casillas">
+                            </div>
+                            <div class="legend"><span>🟢 +2</span><span>🔴 −3</span><span>🔵 Pista</span><span>🟡 Turno extra</span><span>🟣 ×2 próxima respuesta</span>
+                            </div>
+                        </div>
+                        <aside class="sidebar">
+                            <div class="card dice-panel"><span class="eyebrow">TU TURNO</span><h2 id="activeName">Jugador 1</h2>
+                                <div id="die" class="die" aria-live="polite">⚀
+                                </div>
+                                <div id="rollText" class="muted">¡Prepárate para lanzar!
+                                </div>
+                                <button id="rollButton" class="primary">🎲 Lanzar dado</button><p class="hint-text">Responde correctamente para mover tu ficha.</p>
+                            </div>
+                            <div class="card"><h3>🏆 Clasificación</h3>
+                                <div id="scoreboard" class="scoreboard">
+                                </div>
+                            </div>
+                            <div class="card stats"><h3>📈 Estadísticas</h3>
+                                <div id="statsContent">
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="colaboradores">
+                    <div>Integrantes:</div>
+                    <p>-Pablo Enrique Martinez Alba (Lider-Dictador)</p>
+                    <p>-Fernando Yael Ortega Pastrana (Programador)</p>
+                    <p>-Emmanuel Benítez Benítez (Programador)</p>
+                    <p>-Emanuel Mendoza Tornez (Programador)</p>
+                    <p>-Heybart (Programador)</p>
+                    <p>-Isaac Martinez Peña (Apoyo emocional)</p>
+                    
+                    
+                </div>
+            </footer>
+        </div>
+        <div id="modalBackdrop" class="modal-backdrop hidden">
+            <section id="modal" class="modal card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="modal-head"><h2 id="modalTitle"></h2><button id="modalClose" class="icon-btn" aria-label="Cerrar">✕</button>
+                </div>
+                <div id="modalBody">
+                </div>
+            </section>
+        </div>
+        <div id="toast" class="toast hidden" role="status" aria-live="polite">
+        </div>
+        <script type="module" src="js/game.js">
+        </script>
+    </body>
+</html>
